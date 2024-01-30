@@ -1,0 +1,6 @@
+pkg
+src
+linux-torvalds
+*.zst
+*.sample
+tuxedocomputers/
