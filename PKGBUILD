@@ -6,7 +6,7 @@
 # will be on config.extra file.
 
 pkgbase=linux-tuxedo
-pkgver=Ubuntu.tuxedo.6.5.6.5.0.10022.26.r0.bcf0435cf77f
+pkgver=Ubuntu.tuxedo.6.11.6.11.0.105009.9tuxnoble1.r0.1f1db3f256d9
 pkgrel=1
 pkgdesc="Tuxedo computers newest kernel - this is just a "
 url="https://gitlab.com/tuxedocomputers/development/packages/linux"
