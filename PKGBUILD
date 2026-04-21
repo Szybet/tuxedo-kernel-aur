@@ -6,7 +6,7 @@
 # will be on config.extra file.
 
 pkgbase=linux-tuxedo
-pkgver=Ubuntu.tuxedo.6.11.6.11.0.105009.9tuxnoble1.r0.1f1db3f256d9
+pkgver=4e74ac1f961c
 pkgrel=1
 pkgdesc="Tuxedo computers newest kernel - this is just a "
 url="https://gitlab.com/tuxedocomputers/development/packages/linux"
@@ -44,11 +44,13 @@ export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EP
 
 pkgver() {
   cd "$srcdir/$_srcname"
+  
+  local _ver=$(git describe --long --tags --dirty=-patched --always | sed 's/\([^-]*-\)g/r\1/;s/-/./g' | sed 's/^v//')
+
   if [[ -n "$REMOTE_URL" ]]; then
-    # if $REMOTE_URL was created, it's safe to use $REMOTE
-    printf "%s" "$(git describe --dirty=-patched --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g' | sed 's/^v//').${REMOTE//[\/-]/.}"
+    printf "%s.%s" "$_ver" "${REMOTE//[\/-]/.}"
   else
-    printf "%s" "$(git describe --dirty=-patched --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g' | sed 's/^v//')"
+    printf "%s" "$_ver"
   fi
 }
 
